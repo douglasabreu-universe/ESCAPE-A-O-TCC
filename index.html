@@ -13,64 +13,10 @@
 </style>
 
 <body>
-    <canvas id="MAIN" witdh="1000px" height="500px"></canvas>
-    <img id="TEST" src="Edidio.jpg" alt="">
+    <canvas id="MAIN" width="500" height="200px"></canvas>
 </body>
 
+<script src="/INSTANCES/PLAYER.js"></script>
 
-<script>
-
-let MAIN_CANVA = document.getElementById("MAIN")
-let CTX = MAIN_CANVA.getContext("2d")
-let X = 0
-let Y = 0
-let velocidade = 0
-let velocidade2 = 0
-
-let EDIDIO = document.getElementById("TEST")
-
-function Loop(){
-
-    EDIDIO.clientHeight = X
-
-    CTX.clearRect(0,0, MAIN_CANVA.clientWidth, MAIN_CANVA.clientHeight)
-    CTX.fillRect(X, Y, 20, 20)
-    Y += velocidade
-    if (X < MAIN_CANVA.clientWidth){
-        X += velocidade2
-    }
-    if (velocidade2 > 0){
-        velocidade2 -= 0.1
-    }
-    if (velocidade2 < 0){
-        velocidade2 += 0.1
-    }
-
-    if (Y < MAIN_CANVA.clientHeight - 25){
-        velocidade += 0.1
-    }else{
-        velocidade = 0
-    }
-    window.requestAnimationFrame(Loop)
-
-}
-
-window.addEventListener("keydown", event => {
-    console.log(event.key)
-    if (event.key == " "){
-        velocidade = -5
-    }
-    if (event.key == "d"){
-        velocidade2 = 5
-    }
-    if (event.key == "a"){
-        velocidade2 = -5
-    }
-})
-
-window.requestAnimationFrame(Loop)
-
-</script>
-
-
+<script src="/INSTANCES/CORE.js"></script>
 </html>
